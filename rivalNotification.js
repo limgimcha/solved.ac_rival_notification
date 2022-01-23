@@ -1,5 +1,5 @@
 // by qhswp@naver.com
-var rival_arr = ["%handle%"];
+var rival_arr = ["%handle%", "%handle%"];
 
 // makeCookie와 loadCookie는 https://thereclub.tistory.com/59 블로그를 참고하여 작성함.
 var makeCookie = function(sName, oScore, exp){
@@ -44,15 +44,17 @@ for(var i=0; i<rival_arr.length; i++){
       {
         var divTmp = document.createElement('span');
         divTmp.id = 'divtmp';
-        divTmp.style ="color:white; background-color: green; position:absolute; left: 700px; top:1120px;";
-
+        divTmp.style ="color:white; background-color: green; left: 700px; top:1120px;"
+        // divTmp.innerText = "<라이벌> heloo님이 1120문제를 더 풀어 3010 점이 되었습니다!";
         divTmp.innerText = "<라이벌> " + sName +"님이 " + score + " 문제를 더 풀어 " + sRating + " 점이 되었습니다!";
-        document.body.appendChild(divTmp);
+        
+        document.getElementsByClassName("ProfileHeaderCardstyles__UserNumber-sc-nlagzq-5 fTEOJo")[1].appendChild(divTmp);
+        //document.body.appendChild(divTmp);
         divTmp.onclick = function(){
           divTmp.remove();
         };
 
-        // setTimeout(deleteDivTmp, 3000); 자동으로 사라지게 하고 싶다면 주석해제
+        // setTimeout(deleteDivTmp, 3000); 3000ms 후 자동으로 사라지게 하고 싶다면 주석해제
       }
       makeCookie(sName, sScore, 1);
     }
